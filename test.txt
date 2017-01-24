@@ -1,0 +1,47 @@
+/silent-command
+tiles = {};
+posx = game.player.position.x;
+posy = game.player.position.y;
+xoffset = -1;
+yoffset = -1;
+listgrass = {0,1}
+listgrassmedium = {1,1}
+listgrassdry = {2,1}
+listsand = {0,2,1,2,2,2}
+listwater = {0,0,1,0,2,0}
+a=1;
+while(a<#listgrass) do
+  x=listgrass[a+0];
+  y=listgrass[a+1];
+  table.insert(tiles,{name="grass",position={posx+x+xoffset,posy+y+yoffset}} );
+  a=a+2;
+end
+a=1;
+while(a<#listgrassmedium) do
+  x=listgrassmedium[a+0];
+  y=listgrassmedium[a+1];
+  table.insert(tiles,{name="grass-medium",position={posx+x+xoffset,posy+y+yoffset}} );
+  a=a+2;
+end
+a=1;
+while(a<#listgrassdry) do
+  x=listgrassdry[a+0];
+  y=listgrassdry[a+1];
+  table.insert(tiles,{name="grass-dry",position={posx+x+xoffset,posy+y+yoffset}} );
+  a=a+2;
+end
+a=1;
+while(a<#listsand) do
+  x=listsand[a+0];
+  y=listsand[a+1];
+  table.insert(tiles,{name="sand",position={posx+x+xoffset,posy+y+yoffset}} );
+  a=a+2;
+end
+a=1;
+while(a<#listwater) do
+  x=listwater[a+0];
+  y=listwater[a+1];
+  table.insert(tiles,{name="water",position={posx+x+xoffset,posy+y+yoffset}} );
+  a=a+2;
+end
+game.player.surface.set_tiles(tiles);
